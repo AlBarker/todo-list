@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.Storage.Table;
+using System;
 
 namespace TodoList.API.Models
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity : TableEntity
     {
-        public int Id { get; set; }
+        //public string Id { get; set; }
         public DateTime DateCreated { get; set; }
     }
 }

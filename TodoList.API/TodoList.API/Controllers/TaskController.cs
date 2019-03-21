@@ -18,16 +18,16 @@ namespace TodoList.API.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Task>> Get()
+        public async System.Threading.Tasks.Task<ActionResult<IEnumerable<Task>>> Get()
         {
-            return _storageService.GetAll();
+            return await _storageService.GetAll();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Task> Get(int id)
+        public async System.Threading.Tasks.Task<ActionResult<Task>> Get(int id)
         {
-            return _storageService.Get(id);
+            return await _storageService.Get(id);
         }
 
         // POST api/values
@@ -50,7 +50,7 @@ namespace TodoList.API.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             _storageService.Delete(new Task { Id = id });
 
